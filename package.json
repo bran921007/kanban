@@ -21,6 +21,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "tailwindcss": "^1.9.5"
+        "tailwindcss": "^1.9.5",
+        "vuedraggable": "^2.24.2"
     }
 }
