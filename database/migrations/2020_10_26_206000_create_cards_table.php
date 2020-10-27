@@ -18,8 +18,8 @@ class CreateCardsTable extends Migration
             $table->string('title');
             $table->timestamp('deadline')->nullable();
 
-            $table->unsignedBigInteger('listcard_id')->nullable();
-            $table->foreign('listcard_id')->references('id')->on('list_cards')
+            $table->unsignedBigInteger('list_card_id')->nullable();
+            $table->foreign('list_card_id')->references('id')->on('list_cards')
             ->onUpdate('cascade');
 
             $table->unsignedBigInteger('user_id')->nullable();

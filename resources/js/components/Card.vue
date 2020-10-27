@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div class="bg-gray-100 p-2 h-16 rounded mt-3  cursor-pointer hover:bg-gray-200">
-    {{ card.task }}
+    <div class="bg-gray-100 p-2 h-16 rounded mt-3  cursor-pointer font-semibold text-black hover:bg-gray-200">
+    {{ card.title }}
     </div>
 </div>
 </template>

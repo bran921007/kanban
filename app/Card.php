@@ -3,18 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Card extends Model
 {
     protected $guarded = [];
-    protected $table = 'cards';
 
-    public function listcard()
+    public function listcard(): BelongsTo
     {
-        return $this->belongsTo(ListCard::class, 'listcard_id', 'id');
+        return $this->belongsTo(ListCard::class);
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

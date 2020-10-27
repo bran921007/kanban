@@ -1960,15 +1960,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 window.draggable = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.umd.js");
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Lists',
   components: {
     draggable: draggable
   },
-  props: ['lists'],
+  props: ['cardlists'],
   data: function data() {
-    return {};
+    return {
+      lists: this.cardlists
+    };
+  },
+  mounted: function mounted() {},
+  computed: {
+    dragOptions: function dragOptions() {
+      return {
+        animation: 200,
+        group: 'description',
+        ghostClass: 'ghost'
+      };
+    }
   }
 });
 
@@ -1995,14 +2011,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Project',
-  props: ['title', 'cards'],
+  props: ['title', 'cardlists'],
   data: function data() {
-    return {
-      lists: [{
-        title: 'To Do',
-        cards: this.cards
-      }]
-    };
+    return {};
+  },
+  mounted: function mounted() {// console.log(this.cardlists);
   }
 });
 
@@ -2512,9 +2525,9 @@ var render = function() {
       "div",
       {
         staticClass:
-          "bg-gray-100 p-2 h-16 rounded mt-3  cursor-pointer hover:bg-gray-200"
+          "bg-gray-100 p-2 h-16 rounded mt-3  cursor-pointer font-semibold text-black hover:bg-gray-200"
       },
-      [_vm._v("\n    " + _vm._s(_vm.card.task) + "\n    ")]
+      [_vm._v("\n    " + _vm._s(_vm.card.title) + "\n    ")]
     )
   ])
 }
@@ -2544,69 +2557,122 @@ var render = function() {
     "div",
     {
       staticClass:
-        "flex px-4 pb-8 pt-3 mt-2 items-start overflow-x-auto border-t border-gray-200"
+        " px-4 pb-8 pt-3 mt-2 items-start overflow-x-auto border-t border-gray-200"
     },
-    _vm._l(_vm.lists, function(list, index) {
-      return _c(
-        "div",
-        { staticClass: "rounded bg-grey-light  flex-no-shrink w-64 p-2 mr-4" },
+    [
+      _c(
+        "draggable",
+        {
+          attrs: { element: "div", options: _vm.dragOptions, group: "lists" },
+          model: {
+            value: _vm.lists,
+            callback: function($$v) {
+              _vm.lists = $$v
+            },
+            expression: "lists"
+          }
+        },
         [
-          _c("div", { staticClass: "flex justify-between py-1" }, [
-            _c(
-              "h3",
-              { staticClass: "text-sm uppercase font-bold text-gray-500" },
-              [_vm._v(_vm._s(list.title))]
-            ),
-            _vm._v(" "),
-            _c(
-              "svg",
-              {
-                staticClass:
-                  "h-4 fill-current text-gray-500 cursor-pointer origin-center transform rotate-90",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 24 24"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z"
-                  }
-                })
-              ]
-            )
-          ]),
-          _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "text-sm mt-2" },
-            [
-              _c(
-                "draggable",
+            "transition-group",
+            { staticClass: "flex" },
+            _vm._l(_vm.lists, function(list, index) {
+              return _c(
+                "div",
                 {
-                  attrs: { group: "tasks", animation: 200 },
-                  model: {
-                    value: list.cards,
-                    callback: function($$v) {
-                      _vm.$set(list, "cards", $$v)
-                    },
-                    expression: "list.cards"
-                  }
+                  key: list.id,
+                  staticClass:
+                    "rounded bg-grey-light  flex-no-shrink w-64 p-2 mr-4",
+                  attrs: { id: list.id }
                 },
-                _vm._l(list.cards, function(card, key) {
-                  return _c("div", [_c("card", { attrs: { card: card } })], 1)
-                }),
-                0
+                [
+                  _c("div", { staticClass: "flex justify-between py-1" }, [
+                    _c(
+                      "h3",
+                      {
+                        staticClass: "text-sm uppercase font-bold text-gray-500"
+                      },
+                      [_vm._v(_vm._s(list.title))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "svg",
+                      {
+                        staticClass:
+                          "h-4 fill-current text-gray-500 cursor-pointer origin-center transform rotate-90",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 24 24"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "text-sm mt-2" },
+                    [
+                      _c(
+                        "draggable",
+                        {
+                          attrs: {
+                            element: "div",
+                            options: _vm.dragOptions,
+                            group: "tasks"
+                          },
+                          model: {
+                            value: list.cards,
+                            callback: function($$v) {
+                              _vm.$set(list, "cards", $$v)
+                            },
+                            expression: "list.cards"
+                          }
+                        },
+                        [
+                          _c(
+                            "transition-group",
+                            { attrs: { id: list.id } },
+                            _vm._l(list.cards, function(card, index) {
+                              return _c(
+                                "div",
+                                {
+                                  key: card.id,
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.alert("putas")
+                                    }
+                                  }
+                                },
+                                [_c("card", { attrs: { card: card } })],
+                                1
+                              )
+                            }),
+                            0
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
               )
-            ],
-            1
+            }),
+            0
           )
-        ]
+        ],
+        1
       )
-    }),
-    0
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -2639,11 +2705,11 @@ var render = function() {
         "div",
         { staticClass: "container mx-auto px-6 py-8" },
         [
-          _c("h3", { staticClass: "text-gray-700 text-3xl font-medium" }, [
+          _c("h3", { staticClass: " text-2xl font-semibold text-black" }, [
             _vm._v(_vm._s(_vm.title))
           ]),
           _vm._v(" "),
-          _c("lists", { attrs: { lists: _vm.lists } })
+          _c("lists", { attrs: { cardlists: this.cardlists } })
         ],
         1
       )

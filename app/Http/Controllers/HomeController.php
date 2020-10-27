@@ -25,8 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $list = ListCard::with('cards')->get();
-        dd($list->cards);
-        return view('app', compact('cards'));
+        $cardlists = ListCard::with('cards')->get();
+        return view('app', compact('cardlists'));
     }
 }

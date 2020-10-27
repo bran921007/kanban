@@ -1,7 +1,8 @@
 <template>
-<div  class="flex px-4 pb-8 pt-3 mt-2 items-start overflow-x-auto border-t border-gray-200">
-                            
-<div v-for="(list, index) in lists" class="rounded bg-grey-light  flex-no-shrink w-64 p-2 mr-4">
+<div  class=" px-4 pb-8 pt-3 mt-2 items-start overflow-x-auto border-t border-gray-200">
+<draggable element="div"  v-model="lists"  :options="dragOptions" group="lists">
+<transition-group class="flex">                            
+<div v-for="(list,index) in lists" class="rounded bg-grey-light  flex-no-shrink w-64 p-2 mr-4" :key="list.id" :id="list.id">
               
     <div class="flex justify-between py-1">
         <h3 class="text-sm uppercase font-bold text-gray-500">{{ list.title }}</h3>
@@ -10,15 +11,18 @@
         </svg>
     </div>
         <div class="text-sm mt-2">
-            <draggable v-model="list.cards"  group="tasks" :animation="200">
-            <div v-for="(card, key) in list.cards"> 
-                <card :card="card" >
-                </card>  
-            </div>
+            <draggable element="div" v-model="list.cards"  :options="dragOptions"  group="tasks" >
+               <transition-group :id="list.id" > 
+                <div v-for="(card, index) in list.cards" :key="card.id"  @click="alert('putas')"> 
+                    <card :card="card" >
+                    </card>  
+                </div>
+               </transition-group> 
             </draggable>  
         </div>         
 </div>
-
+</transition-group>
+</draggable>
 </div> 
 
 </template>
@@ -28,11 +32,24 @@ window.draggable = require('vuedraggable');
 export default {
     name: 'Lists',
     components: { draggable, },
-    props: ['lists'],
+    props: ['cardlists'],
     data(){
         return{
+            lists: this.cardlists
         }
-    }
+    },
+    mounted(){
+        
+    },
+    computed: {
+            dragOptions () {
+              return  {
+                animation: 200,
+                group: 'description',
+                ghostClass: 'ghost'
+              };
+            },
+        },
 }
 </script>
 

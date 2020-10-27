@@ -23,12 +23,11 @@
                 <nav class="mt-10">
 
                 </nav>
-            </nav>
-
+            </nav>            
             <div class="px-16 py-4 text-gray-700 bg-white h-screen w-screen" id="app">
                 <project
-                title="Dashboard"
-                cards="{{$cards->toJson()}}"
+                title="Project 23"
+                :cardlists="{{ $cardlists->toJson() ?? '' }}"
                 >
                 </project>    
             </div>    
