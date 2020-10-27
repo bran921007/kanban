@@ -1,8 +1,8 @@
 <template>
-<div  class=" px-4 pb-8 pt-3 mt-2 items-start overflow-x-auto border-t border-gray-200">
+<div  class="flex overflow-x-auto overflow-y-auto h-screen  pt-4 mt-2 items-start border-t border-gray-200">
 <draggable element="div"  v-model="lists"  :options="dragOptions" group="lists">
 <transition-group class="flex">                            
-<div v-for="(list,index) in lists" class="rounded bg-grey-light  flex-no-shrink w-64 p-2 mr-4" :key="list.id" :id="list.id">
+<div v-for="(list,index) in lists" class="rounded bg-grey-light  flex-no-shrink w-64  mr-4" :key="list.id" :id="list.id">
               
     <div class="flex justify-between py-1">
         <h3 class="text-sm uppercase font-bold text-gray-500">{{ list.title }}</h3>

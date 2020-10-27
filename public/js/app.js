@@ -2557,7 +2557,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        " px-4 pb-8 pt-3 mt-2 items-start overflow-x-auto border-t border-gray-200"
+        "flex overflow-x-auto overflow-y-auto h-screen  pt-4 mt-2 items-start border-t border-gray-200"
     },
     [
       _c(
@@ -2582,7 +2582,7 @@ var render = function() {
                 {
                   key: list.id,
                   staticClass:
-                    "rounded bg-grey-light  flex-no-shrink w-64 p-2 mr-4",
+                    "rounded bg-grey-light  flex-no-shrink w-64  mr-4",
                   attrs: { id: list.id }
                 },
                 [
@@ -2697,24 +2697,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "main",
-    { staticClass: "flex-1 overflow-x-hidden overflow-y-auto " },
-    [
-      _c(
-        "div",
-        { staticClass: "container mx-auto px-6 py-8" },
-        [
-          _c("h3", { staticClass: " text-2xl font-semibold text-black" }, [
-            _vm._v(_vm._s(_vm.title))
-          ]),
-          _vm._v(" "),
-          _c("lists", { attrs: { cardlists: this.cardlists } })
-        ],
-        1
-      )
-    ]
-  )
+  return _c("main", {}, [
+    _c(
+      "div",
+      { staticClass: " mx-auto px-6 py-8" },
+      [
+        _c("h3", { staticClass: " text-2xl font-semibold text-black" }, [
+          _vm._v(_vm._s(_vm.title))
+        ]),
+        _vm._v(" "),
+        _c("lists", { attrs: { cardlists: this.cardlists } })
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

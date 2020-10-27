@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/team/home', 'HomeController@index')->name('team.index');
+Route::get('/team/', 'HomeController@index')->name('team');
