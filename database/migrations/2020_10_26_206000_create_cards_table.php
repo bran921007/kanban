@@ -14,11 +14,18 @@ class CreateCardsTable extends Migration
     public function up()
     {
         Schema::create('cards', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('title');
             $table->timestamp('deadline')->nullable();
-            $table->unsignedInteger('listcard_id');
-            $table->unsignedInteger('user_id');
+
+            $table->unsignedBigInteger('listcard_id')->nullable();
+            $table->foreign('listcard_id')->references('id')->on('list_cards')
+            ->onUpdate('cascade');
+
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')
+                  ->onUpdate('cascade');
+
             $table->integer('position');
             $table->timestamps();
         });

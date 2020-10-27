@@ -1995,21 +1995,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Project',
-  props: ['title'],
+  props: ['title', 'cards'],
   data: function data() {
     return {
       lists: [{
         title: 'To Do',
-        cards: [{
-          task: 'Check the meta tags'
-        }, {
-          task: 'Check the website'
-        }]
-      }, {
-        title: 'Pending',
-        cards: [{
-          task: 'Nothing important'
-        }]
+        cards: this.cards
       }]
     };
   }

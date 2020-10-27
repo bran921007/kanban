@@ -14,7 +14,7 @@ class CreateListCardsTable extends Migration
     public function up()
     {
         Schema::create('list_cards', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('title');
             $table->timestamps();
         });

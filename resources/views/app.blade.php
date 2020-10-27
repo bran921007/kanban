@@ -28,6 +28,7 @@
             <div class="px-16 py-4 text-gray-700 bg-white h-screen w-screen" id="app">
                 <project
                 title="Dashboard"
+                cards="{{$cards->toJson()}}"
                 >
                 </project>    
             </div>    
