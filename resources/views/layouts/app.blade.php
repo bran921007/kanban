@@ -103,7 +103,7 @@
                 <nav class="mt-5 flex-1 px-2 ">
                     <x-desktop-nav-link route="home">
                         <svg
-                            class="mr-3 h-6 w-6 {{Request::routeIs('home') ? 'text-gray-600' : 'text-gray-600'}} group-hover:text-gray-300 group-focus:text-gray-300 transition ease-in-out duration-150"
+                            class="mr-3 h-6 w-6 {{Request::routeIs('home') ? 'text-gray-900' : 'text-gray-600'}} group-hover:text-gray-300 group-focus:text-gray-300 transition ease-in-out duration-150"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>

@@ -1916,6 +1916,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Card',
   props: ['card'],
@@ -2525,13 +2557,135 @@ var render = function() {
       "div",
       {
         staticClass:
-          "bg-gray-100 p-2 h-16 rounded mt-3  cursor-pointer font-semibold text-black hover:bg-gray-200"
+          "bg-gray-100 px-3 py-2  rounded mt-3  cursor-pointer   hover:bg-gray-200"
       },
-      [_vm._v("\n    " + _vm._s(_vm.card.title) + "\n    ")]
+      [
+        _c("div", { staticClass: "flex justify-between mb-1" }, [
+          _c("p", { staticClass: "text-gray-600 text-sm" }, [
+            _vm._v("Add tag")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-gray-600 text-sm flex items-center" }, [
+            _c(
+              "svg",
+              {
+                staticClass: "feather feather-clock w-4 h-4 mr-1 text-gray-600",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  fill: "none",
+                  stroke: "currentColor",
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round",
+                  "stroke-width": "2",
+                  viewBox: "0 0 24 24"
+                }
+              },
+              [
+                _c("defs"),
+                _vm._v(" "),
+                _c("circle", { attrs: { cx: "12", cy: "12", r: "10" } }),
+                _vm._v(" "),
+                _c("path", { attrs: { d: "M12 6v6l4 2" } })
+              ]
+            ),
+            _vm._v("    \n            Aug 18\n        ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-black font-semibold mb-4" }, [
+          _vm._v(_vm._s(_vm.card.title))
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex justify-between items-center" }, [
+          _c("div", { staticClass: "flex " }, [
+            _c(
+              "p",
+              { staticClass: "text-gray-600 text-sm flex items-center mr-3" },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticClass:
+                      "feather feather-paperclip w-4 h-4 mr-1 text-gray-600",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      viewBox: "0 0 24 24"
+                    }
+                  },
+                  [
+                    _c("defs"),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v("\n                1\n            ")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "p",
+              { staticClass: "text-gray-600 text-sm flex items-center" },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticClass:
+                      "feather feather-message-square w-4 h-4 mr-1 text-gray-600",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      viewBox: "0 0 24 24"
+                    }
+                  },
+                  [
+                    _c("defs"),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v("\n                12\n            ")
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ]
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex" }, [
+      _c("img", {
+        staticClass: "w-6 h-6 rounded-full",
+        attrs: { src: "https://tailwindcss.com/img/jonathan.jpg", alt: "" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -2626,7 +2780,7 @@ var render = function() {
                           attrs: {
                             element: "div",
                             options: _vm.dragOptions,
-                            group: "tasks"
+                            group: "cards"
                           },
                           model: {
                             value: list.cards,

@@ -11,7 +11,7 @@
         </svg>
     </div>
         <div class="text-sm mt-2">
-            <draggable element="div" v-model="list.cards"  :options="dragOptions"  group="tasks" >
+            <draggable element="div" v-model="list.cards"  :options="dragOptions"  group="cards" >
                <transition-group :id="list.id" > 
                 <div v-for="(card, index) in list.cards" :key="card.id"  @click="alert('putas')"> 
                     <card :card="card" >
