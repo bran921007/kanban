@@ -9,7 +9,7 @@
         <circle cx="12" cy="12" r="10"/>
         <path d="M12 6v6l4 2"/>
         </svg>    
-            Aug 18
+           {{ card.deadline | formatDate }}
         </p>
     </div>
     <div class="text-black font-semibold mb-4">{{ card.title }}</div>
@@ -39,13 +39,21 @@
 </template>
 
 <script>
+window.moment = require('moment');
 export default {
     name: 'Card',
     props: ['card'],
     data(){
         return{
         }
+    },
+    filters: {
+    formatDate: function (value) {
+        if (value) {
+            return moment(String(value)).format('MMM DD')
+        }
     }
+}
     
 }
 </script>

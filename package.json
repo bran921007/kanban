@@ -21,6 +21,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "moment": "^2.29.1",
         "tailwindcss": "^1.9.5",
         "vuedraggable": "^2.24.2"
     }
